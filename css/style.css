@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('../fonts/RobotoMono-Thin.ttf');
+  }
+  
+  * {
+    font-family: 'RobotoMono', monospace;
+  }
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    background: linear-gradient(to right, rgb(19, 106, 138), rgb(38, 120, 113));
+}
+
+#app {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+
+input {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.output {
+    border: 1px solid #222;
+    padding: 30px 15px;
+    background-color: #FFF;
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+
+  input {
+    width: 100%;
+  }
+  .output {
+    margin: auto;
+  }
+  img {
+    width: 40%;
+  }
+
+  footer * {
+    font-size: 1.8rem;
+  }
+}

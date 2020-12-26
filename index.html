@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.min.js"></script>
+    <script src="js/qrious.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de QRCode</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <main>
+            <input type="text" placeholder="Digite um link para gerar..." v-model="text">
+
+            <div v-if="text" class="output">
+                <img :src="newQRCode" alt="img_qr_code"/>
+            </div>
+        </main>
+
+        <footer style="margin-top: 80px;">
+            <strong>&copy; {{ new Date().getFullYear() }} — 
+                <a style="color: #FFF;text-decoration: none;"
+                    href="https://github.com/romarioarruda"
+                    target="_blank" rel="noopener noreferrer">
+                    Romário Arruda
+                </a>
+            </strong>
+        </footer>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Gerador QRCode',
+                text: 'https://covid.romarioarruda.dev',
+                qrcode: new QRious({ size: 300 })
+            },
+            
+            computed: {
+                newQRCode () {
+                    this.qrcode.value = this.text
+                    return this.qrcode.toDataURL()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
