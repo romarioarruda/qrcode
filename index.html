@@ -12,13 +12,16 @@
 <body>
     <div id="app">
         <h1>{{title}}</h1>
-        <main>
-            <input type="text" placeholder="Digite um link para gerar..." v-model="text">
+        <div class="main">
+            <div class="ara-buton">
+                <input id="link" type="text" placeholder="Digite um link..." v-model="text"/>
+                <button @click="clearInput" class="close">X</button>
+            </div>
 
             <div v-if="text" class="output">
                 <img :src="newQRCode" alt="img_qr_code"/>
             </div>
-        </main>
+        </div>
 
         <footer style="margin-top: 80px;">
             <strong>&copy; {{ new Date().getFullYear() }} — 
@@ -37,6 +40,12 @@
                 title: 'Gerador QRCode',
                 text: 'https://covid.romarioarruda.dev',
                 qrcode: new QRious({ size: 300 })
+            },
+
+            methods: {
+                clearInput () {
+                    this.text = ''
+                }
             },
             
             computed: {
